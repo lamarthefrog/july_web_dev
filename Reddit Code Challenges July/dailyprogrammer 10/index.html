@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Reddit Dailyprogrammer 10</title>
+</head>
+
+<body>
+    <h1>Reddit Dailyprogrammer 10:</h1>
+    <br><br>
+
+    <h2>Phone Number Validator</h2>
+    <p>
+        "The exercise today asks you to validate a telephone number, as if written on an input form. 
+        Telephone numbers can be written as ten digits, or with dashes, spaces, or dots between the three 
+        segments, or with the area code parenthesized; both the area code and any 
+        white space between segments are optional."
+    </p>
+    <br><br>
+
+    <h3>Validate Phone Number:</h3>
+    <input type="text" id="userInput">
+    <button type="submit" onclick="verifyPhoneNumber()">Submit</button>
+
+    <br><br>
+    <span id="testOutput"></span>
+    <span id="finalOutput" style="color: red"></span>
+
+    <script>
+        function verifyPhoneNumber() 
+        {
+            //putting getElementById in $ variable for ease of use
+            var $ = function(id) {
+                return document.getElementById(id);
+            }
+
+            //extract the number that the user has put in
+            //DON'T FORGET THE .VALUE
+            var userNum = $("userInput").value;
+
+            //use trim and other methods on num to clean up text
+            //we're only using the ones that are specified in the intro to make it quicker
+            var trimmedNum = userNum.trim();
+
+            //replace method: first argument is what we want to replace, second is what with
+            //we're going through replace for each of the allowed characters
+            //*OK SO, .replace will only replace the first instance of a character normally
+            //*SO, we are using the /[character]/g syntax to globally deal with that character
+            //also using escape characters so js doesn't get confused
+            //THIS SHOULD WORK NOW
+            trimmedNum = trimmedNum.replace(/\-/g, "");
+            trimmedNum = trimmedNum.replace(/\(/g, "");
+            trimmedNum = trimmedNum.replace(/\)/g, "");
+            trimmedNum = trimmedNum.replace(/\./g, "");
+            trimmedNum = trimmedNum.replace(/ /g, "");
+
+            //$("testOutput").textContent = trimmedNum;    test print
+
+            //ended up using Number function to convert instead of parseInt
+            var finalNum = Number(trimmedNum, 10);
+
+            //checks if finalNum is a number and then sees if it is 10 chars long
+            //length method doesn't work well on nums, so we used toString() as well
+            if (Number.isNaN(finalNum) == false && finalNum.toString().length == 10) {
+                //change text color to green to show it's correct
+                $("finalOutput").style.color = "green";
+                $("finalOutput").textContent = "This is a valid phone number!";
+            } else {
+                $("finalOutput").style.color = "red";
+                $("finalOutput").textContent = "This is not a valid phone number!";
+            }
+
+            //final output
+            //$("finalOutput").textContent = trimmedNum;
+        }
+    </script>
+</body>
+</html>
