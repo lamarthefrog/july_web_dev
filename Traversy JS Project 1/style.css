@@ -1,0 +1,71 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+form {
+    border: 1px solid black;
+    padding: 20px;
+    box-shadow: 5px 5px;
+}
+
+button {
+    margin-top: 1em;
+    width: 100%;
+    color: white;
+    background-color: blue;
+    font-size: large;
+    padding: 5px;
+}
+
+span {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    visibility: hidden;
+    color: red;
+}
+
+span.error {
+    visibility: visible;
+}
+
+span.success {
+    visibility: hidden;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 10em;
+    width: 40%;
+    min-height: 50vh;
+}
+
+.form-control label {
+    font-weight: bold;
+    color: grey;
+    /*display: block is good for putting them on their own line*/
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    position: relative;
+}
+
+.form-control input {
+    padding: 5px;
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+}
+
+.form-control.error input {
+    border-color: red;
+}
+
+.form-control.success input {
+    border-color: green;
+}
