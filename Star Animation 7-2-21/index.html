@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Star Background (July 2)</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body  onload="myMove()">
+    <div id="stardiv1"><p id="myAnimation">*  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p></div>
+
+    <script>
+        //note: for js animation the container most be relative position
+        //the animation element should be absolute position
+
+        //setting id to null to prevent errors
+        var id="null";
+
+        //this function will be activated onload
+        //note: onload only works on certain tags so this is on body
+        function myMove() {
+            //elem variable gets the id we want
+            var elem = document.getElementById("myAnimation");
+            //assign starting position
+            var pos = 0;
+
+            //clearInterval() clears a timer set with setInterval()
+            //the ID value returned by setInterval() is used as the parameter for clearInterval()
+            clearInterval(id);
+
+            //setting this id to use with clearInterval() later
+            id = setInterval(frame, 5);
+
+            function frame() {
+                //if block checks if animation is done
+                if (pos==1000) {
+                    clearInterval(id);
+                }
+                //else block will iterate and change the pos variable
+                //elem.style.left moves it  
+                else {
+                    pos++;
+                    //shorter version of: document.getElementById("myAnimation").style.left
+                    elem.style.left = pos + "px";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
